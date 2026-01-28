@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flagship | Agent Profiler</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-shell">
+        <header>
+            <img src="assets/FYI-token.png" alt="Logo" class="logo-pulse">
+            <h1 class="glitch-text" data-text="AGENT PROFILER">AGENT PROFILER</h1>
+        </header>
+
+        <div id="view-input" class="view">
+            <div class="cyber-box">
+                <p class="term-text">> SYSTEM_READY. AWAITING_HANDLE...</p>
+                <input type="text" id="username" placeholder="ENTER X HANDLE" autocomplete="off" maxlength="20">
+                <button class="action-btn" onclick="startQuiz()">INITIALIZE SYNC</button>
+                <p id="error-msg" class="error-text hidden">ERROR: IDENTITY_ALREADY_MINTED</p>
+            </div>
+        </div>
+
+        <div id="view-quiz" class="view hidden">
+            <div class="quiz-status">
+                <span class="step-tag">SIGNAL POINT <span id="step-num">1</span>/5</span>
+                <div class="progress-line"><div class="fill" id="progress-fill"></div></div>
+            </div>
+            <h2 id="q-text" class="question-header">...</h2>
+            <div id="q-options" class="options-grid"></div>
+        </div>
+
+        <div id="view-spin" class="view hidden">
+            <div class="slot-machine-container">
+                <div class="scanner-line"></div>
+                <div class="slot-window">
+                    <h1 id="slot-text" class="slot-text blur-effect">SEARCHING</h1>
+                </div>
+                <p class="status-blink">MATCHING NEURAL PATTERNS...</p>
+            </div>
+        </div>
+
+        <div id="view-card" class="view hidden">
+            <div id="capture-area" class="card-wrapper">
+                <div class="agent-card" id="final-card">
+                    <div class="scan-overlay"></div>
+                    <div class="glow-spot"></div>
+
+                    <div class="card-top">
+                        <span class="brand-tag">FLAGSHIP.FYI</span>
+                        <span class="id-tag" id="card-id">#0000</span>
+                    </div>
+
+                    <div class="card-visual">
+                        <img src="" id="card-img" class="agent-img float-anim">
+                        <h2 id="card-agent-name" class="agent-title">AGENT</h2>
+                    </div>
+
+                    <div class="bio-box">
+                        <p id="card-bio">Loading profile data...</p>
+                    </div>
+
+                    <div class="card-data-row">
+                        <div class="data-col">
+                            <span class="label">OPERATIVE</span>
+                            <span class="value" id="card-user">@USER</span>
+                        </div>
+                        <div class="data-col right">
+                            <span class="label">SPECIALTY</span>
+                            <span class="value" id="card-spec">---</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <button class="action-btn download" onclick="downloadCard()">DOWNLOAD PNG</button>
+                <div class="restart-btn" onclick="location.reload()">RESTART SYSTEM</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

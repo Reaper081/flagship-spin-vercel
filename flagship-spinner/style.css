@@ -1,0 +1,120 @@
+:root {
+    --bg: #030305; --neon: #00d2ff; --panel: #0e0e14; --border: #222; --error: #ff3333;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+    margin: 0; background: var(--bg); color: white; font-family: 'Rajdhani', sans-serif;
+    display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden;
+}
+
+.app-shell { 
+    width: 100%; max-width: 420px; min-height: 100vh; padding: 20px; 
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+}
+
+.view { 
+    width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    animation: fadeUp 0.4s ease; text-align: center;
+}
+.hidden { display: none !important; }
+
+/* HEADER LOGO CENTERING */
+header { width: 100%; display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; }
+.logo-pulse { width: 65px; filter: drop-shadow(0 0 15px var(--neon)); margin-bottom: 15px; }
+h1 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; letter-spacing: 4px; color: var(--neon); margin: 0; }
+
+/* INPUT & BOXES */
+.cyber-box { width: 100%; display: flex; flex-direction: column; align-items: center; }
+input { 
+    width: 100%; background: #000; border: 1px solid #333; color: white; padding: 18px; 
+    font-size: 1.1rem; text-align: center; font-family: 'Orbitron'; margin-bottom: 20px; border-radius: 4px;
+}
+
+/* QUIZ BOXES - ADDED FIXED HEIGHT & FLEX TO PREVENT JUMPING */
+.q-grid { width: 100%; display: grid; gap: 12px; margin-top: 20px; }
+.opt-btn {
+    background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 18px; border-radius: 8px;
+    cursor: pointer; font-family: 'Orbitron'; font-size: 0.85rem; text-align: left; transition: 0.2s;
+    /* FIX: Lock size and center text vertically */
+    height: 85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.opt-btn:hover { border-color: var(--neon); box-shadow: 0 0 15px rgba(0,210,255,0.2); transform: translateX(5px); }
+.opt-btn.selected { background: var(--neon); color: black; }
+.bracket { color: var(--neon); margin-right: 5px; }
+
+/* AGENT CARD - FIXED PROPORTIONS */
+.agent-card {
+    width: 320px; height: 550px; background: #08080c; border: 1px solid #333;
+    border-radius: 20px; padding: 25px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; text-align: left;
+}
+.card-top { display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 10px; }
+
+.agent-img { 
+    width: 130%; 
+    height: 240px; 
+    object-fit: contain; 
+    animation: float 4s ease-in-out infinite; 
+    margin: 0 auto;
+    transition: width 0.3s ease;
+}
+
+.agent-card.download-mode .agent-img { 
+    width: 85% !important; 
+    height: 240px !important;
+    transform: none !important;
+    animation: none !important;
+    object-fit: contain !important;
+    margin-top: 0 !important;
+}
+
+.agent-title { font-family: 'Orbitron'; font-size: 1.8rem; margin: 10px 0; }
+.bio-box { font-size: 0.72rem; color: #999; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; min-height: 65px; margin-bottom: 15px; }
+
+/* CARD FOOTER */
+.card-footer { display: flex; justify-content: space-between; border-top: 1px solid #222; padding-top: 12px; margin-top: auto; }
+.label { font-size: 0.6rem; color: #555; text-transform: uppercase; margin-bottom: 2px; }
+.value { font-family: 'Orbitron'; font-size: 0.8rem; color: white; }
+
+/* BUTTONS */
+.action-btn { 
+    width: 100%; max-width: 320px; background: var(--neon); color: black; border: none; padding: 18px; 
+    font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 20px;
+    clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%);
+}
+
+/* THE GHOST FIX - NO BACKGROUND POSSIBLE */
+.restart-btn {
+    display: inline-block;
+    background: none !important;
+    background-color: rgba(0,0,0,0) !important; /* Absolute transparency */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    
+    /* Text Styling */
+    color: #444 !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.restart-btn:hover {
+    color: var(--neon) !important;
+    text-decoration: underline;
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
